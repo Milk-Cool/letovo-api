@@ -79,3 +79,11 @@ URL-закодированные параметры:
 - `alternative_mobile`: Телефон ученика
 - `emergency_contact_name`: Имя сопровождающего (необязательно; если нет, оставьте пустым)
 - `emergency_contact_number`: Номер мопровождающего (необязательно; если нет, оставьте пустым)
+
+# Экзиаты - удаление
+Чтобы удалить экзиат, надо послать POST-запрос на `https://student.letovo.ru/modules/student/student_ajax.php`.
+> По особым причинам, экзиаты пока что не удаляются - [см. проблему на helpdesk](https://helpdesk.letovo.ru/WorkOrder.do?woMode=viewWO&woID=12215).
+### Тело запроса
+URL-закодированные параметры:
+- `act`: `remove_exeat`
+- `exeat_id`: ID (номер) экзиата
