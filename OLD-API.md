@@ -1,4 +1,5 @@
-<!--- ![UNDER CONSTRUCTION](https://media.istockphoto.com/vectors/under-construction-site-banner-sign-vector-black-and-yellow-diagonal-vector-id1192837450?k=20&m=1192837450&s=612x612&w=0&h=MpHAjpQ7v_zZmH_2FjcbmVMonTOkjs156B1egVrFViw=) -->
+# Внимание!
+Это - старая версия README этого API. Использовать её крайне не рекомендуется.
 
 # letovo-api
 A document describing the student.letovo.ru API (RUSSIAN)<br>
@@ -110,7 +111,3 @@ URL-закодированные параметры:
 
 # Расписание как ICS-файл
 Со своим PHPSESSID сделайте запрос на `https://student.letovo.ru/index.php?ics`. Ответом сервера как раз и будет расписание в формате ICS.
-
-# ⠀
-# Планы
-Я планирую создать сервис, который восполнит все "дыры" здесь - например, получение списка экзиатов возможно только через HTML-страницу, как указано выше. Он будет получать страничку и парсить её, используя данный PHPSESSID. Но, наверное, я подожду нового учебного года, чтобы это всё можно было нормально протестировать. Удачи всем! ;)
