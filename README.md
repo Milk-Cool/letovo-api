@@ -8,6 +8,11 @@ API для `s.letovo.ru`. Большинство запросов идут на 
 ## Оглавление
 - [Авторизация](https://github.com/Milk-Cool/letovo-api/tree/main#авторизация)
 - [Информация об аккаунте](https://github.com/Milk-Cool/letovo-api/tree/main#информация-об-аккаунте)
+- Уведомления
+- - [Количество новых уведомлений](https://github.com/Milk-Cool/letovo-api/tree/main#количество-новых-уведомлений)
+- - Уведомления
+- [Программы развития](https://github.com/Milk-Cool/letovo-api/tree/main#типы-программ-развития)
+- [Диплом Летово](https://github.com/Milk-Cool/letovo-api/tree/main#таблица-диплома-летово)
 
 ## Авторизация
 Для входа достаточно предьявить логин и пароль.
@@ -80,6 +85,137 @@ POST `https://s-api.letovo.ru/api/me`
             "widget_active_schoolprogress": не-знаю-todo,
             "widget_active_favorites": не-знаю-todo,
             "active_qa_sections": []
+        }
+    }
+}
+```
+
+## Количество новых уведомлений
+### Адрес
+GET `https://s-api.letovo.ru/api/notifications/new/count`
+### Ответ сервера
+Сервер вернёт ответ в формате JSON. Выглядит он примерно так:
+```json
+{
+    "status": "ok",
+    "code": 200,
+    "message": "Кол-во уведомлений получено",
+    "data": количество-уведомлений
+}
+```
+## Типы программ развития
+### Адрес
+GET `https://s-api.letovo.ru/api/refs/developmentprogramtypes`
+### Ответ сервера
+Сервер вернёт ответ в формате JSON. Выглядит он примерно так:
+```json
+{
+    "status": "ok",
+    "code": 200,
+    "message": "Список типов программ развития Диплома Летово получен",
+    "data": [
+        {
+            "id": 1,
+            "name": "Sports and health",
+            "name_cyrillic": "Спорт и здоровье"
+        },
+        {
+            "id": 2,
+            "name": "Creativity and invention",
+            "name_cyrillic": "Творчество и изобретательство"
+        },
+        {
+            "id": 3,
+            "name": "Social and civic responsibility",
+            "name_cyrillic": "Социальная и гражданская ответственность"
+        },
+        {
+            "id": 4,
+            "name": "Science and cognition",
+            "name_cyrillic": "Наука и познание"
+        },
+        {
+            "id": 5,
+            "name": "Leadership and interaction",
+            "name_cyrillic": "Лидерство и взаимодействие"
+        }
+    ]
+}
+```
+> Видимо, разработчики рассчитывают на появление одной или нескольких других программ развития в будущем. :thinking:
+## Таблица диплома Летово
+### Адрес
+GET `https://s-api.letovo.ru/api/diplomaletovo/id-ученика` (см. [Информация об аккаунте](https://github.com/Milk-Cool/letovo-api/tree/main#информация-об-аккаунте))
+### Ответ сервера
+Сервер вернёт ответ в формате JSON. Выглядит он примерно так:
+```json
+{
+    "status": "ok",
+    "code": 200,
+    "message": "Сводная таблица Диплома Леотово ученика получена",
+    "data": {
+        "diploma_letovo_table": {
+            "Спорт и здоровье": {
+                "Бронзовые": {
+                    "score": кол-во-бронзовых-баллов,
+                    "received_for": {
+                        "activities": [
+                            {
+                                "id_activity": id-мероприятия,
+                                "activity_list": id-только-другой,
+                                "activity_time": "время-добавления",
+                                "activity": {
+                                    "activity_name": "название-мероприятия",
+                                    "id_activity": id-только-другой,
+                                    "activity_start": "начало",
+                                    "activity_end": "конец"
+                                }
+                            },
+                            {
+                                ...
+                            },
+                            ...
+                        ],
+                        "courses": ["не-знаю-todo"],
+                        "olimpiads": ["не-знаю-todo"],
+                        "projects": ["не-знаю-todo"],
+                        "sports": [
+                            null,
+                            null
+                        ]
+                    }
+                },
+                "Серебряные": {
+                    "score": кол-во-серебряных-баллов,
+                    "received_for": {
+                        "activities": [],
+                        "courses": [],
+                        "olimpiads": [],
+                        "projects": []
+                    }
+                },
+                "Золотые": {
+                    "score": кол-во-золотых-баллов,
+                    "received_for": {
+                        "activities": [],
+                        "courses": [],
+                        "olimpiads": [],
+                        "projects": []
+                    }
+                }
+            },
+            "Творчество и изобретательство": {
+                ...
+            },
+            "Социальная и гражданская ответственность": {
+                ...
+            },
+            "Наука и познание": {
+                ...
+            },
+            "Лидерство и взаимодействие": {
+                ...
+            }
         }
     }
 }
