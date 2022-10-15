@@ -1,4 +1,5 @@
-![image](https://user-images.githubusercontent.com/43724263/184696262-3d25bb6e-8366-4561-b553-3a17ff2506c7.png)
+# Внимание
+Работа над API прекращается, т. к. айтишники нам дали свой апи: [s-api.letovo.ru/api/documentation](https://s-api.letovo.ru/api/documentation)
 
 # Letovo API
 API для `s.letovo.ru`. Большинство запросов идут на URL `https://s-api.letovo.ru/api/...` с помощью POST-запросов.<br>
